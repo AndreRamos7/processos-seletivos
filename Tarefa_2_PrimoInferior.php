@@ -1,5 +1,4 @@
 <?php
-	
 	function isPrimo($num){
 		$divisores = 0;
 		for($count=2; $count < $num; $count++)
