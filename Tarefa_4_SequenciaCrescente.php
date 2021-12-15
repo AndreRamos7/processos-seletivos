@@ -4,21 +4,28 @@ class Tarefa4{
 		$qtd_quebras_de_sequencia = 0;
 		$num_anterior = $sequencia[0];
 		$index_num_maior = 0;
-		
+		echo "[";
 		for($i = 0; $i < sizeof($sequencia); $i ++){
 			echo $sequencia[$i];
 			if($i != sizeof($sequencia)-1 )
 				echo ", ";
 			
 			$num_anterior = $sequencia[$index_num_maior];
-			if($sequencia[$i] > $num_anterior){
+			if($sequencia[$i] > $num_anterior){				
 				$index_num_maior = $i;
 			}else{
 				$qtd_quebras_de_sequencia++;
 			}	
 			
 		}
-		echo " --- sizeof [". sizeof($sequencia) . "] -- index_maior = $index_num_maior --- ";
+		
+		if(sizeof($sequencia) - $qtd_quebras_de_sequencia == 0 ){			
+			echo "] true";
+		}else{
+			echo "] false";
+		}
+		
+		/*echo " --- sizeof [". sizeof($sequencia) . "] -- index_maior = $index_num_maior --- ";
 		
 		echo "  qtd_quebras = $qtd_quebras_de_sequencia --- ";
 		if(sizeof($sequencia) - $qtd_quebras_de_sequencia == 0 ){			
@@ -26,10 +33,8 @@ class Tarefa4{
 		}else{
 			echo " --- False";
 		}
-		
-		
-		echo "</br>";
-		
+		*/
+		echo "</br>";		
 	}	
 }
 
