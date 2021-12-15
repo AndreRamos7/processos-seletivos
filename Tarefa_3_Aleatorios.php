@@ -11,7 +11,7 @@ class Tarefa3{
 		echo "Array sorteado = [";
 		for($conta = 0; $conta < sizeof($lista_nums); $conta ++){
 			echo $lista_nums[$conta];
-			if($cont != sizeof($lista_nums)-1 )
+			if($conta != sizeof($lista_nums)-1 )
 				echo ", ";			
 		}
 		echo "]";
@@ -21,16 +21,14 @@ class Tarefa3{
 		//print_r($lista_qtd);
 		echo "Os números que não se repetem são o ";
 				
-		$conta = 0;
-		foreach ($lista_qtd as $key => $value){	
-					
-			if($value == 1){				
+		$ctdr = 0;
+		foreach ($lista_qtd as $key => $value){					
+			if($value == 1){								
 				echo $key;
-				if($conta != sizeof($lista_qtd) -1 )				
-					echo ", ";
+				if($ctdr != sizeof($lista_qtd)-1 )				
+					echo ", ";				
 			}
-			$conta++;
-			
+			$ctdr++;
 		}		
 	}	
 }
