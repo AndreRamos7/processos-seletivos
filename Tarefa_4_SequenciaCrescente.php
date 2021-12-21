@@ -1,46 +1,47 @@
 <?php
 class Tarefa4{	
 	function sequenciaCrescente($sequencia){
-		$qtd_quebras_de_sequencia = 0;
+		$qtd_quebras = 0;
+		$qtd_maiores = 0;
 		$num_anterior = $sequencia[0];
 		$index_num_maior = 0;
 		echo "[";
 		for($i = 0; $i < sizeof($sequencia); $i ++){
-			echo $sequencia[$i];
-			if($i != sizeof($sequencia)-1 )
+			echo $sequencia[$i];			
+			if($i < sizeof($sequencia)-1 )
 				echo ", ";
 			
-			$num_anterior = $sequencia[$index_num_maior];
-			if($sequencia[$i] > $num_anterior){				
-				$index_num_maior = $i;
-			}else{
-				$qtd_quebras_de_sequencia++;
-			}	
+			if($i == 0)	continue;
 			
+			//$num_anterior = $sequencia[$i-1];
+			if($sequencia[$i] > $sequencia[$i-1]){	
+				$qtd_maiores++;		
+				$index_num_maior = $i;
+			}else{				
+				$qtd_quebras++;
+				if($i+1 <= sizeof($sequencia)-1)
+					if($sequencia[$i+1] >= $sequencia[$i-1]){
+						//$qtd_maiores++;
+					}
+			}			
 		}
 		
-		if(sizeof($sequencia) - $qtd_quebras_de_sequencia == 0 ){			
+		if(sizeof($sequencia) >= ($qtd_maiores-1) AND $qtd_quebras <= 1){			
 			echo "] true";
 		}else{
 			echo "] false";
 		}
 		
-		/*echo " --- sizeof [". sizeof($sequencia) . "] -- index_maior = $index_num_maior --- ";
-		
-		echo "  qtd_quebras = $qtd_quebras_de_sequencia --- ";
-		if(sizeof($sequencia) - $qtd_quebras_de_sequencia == 0 ){			
-			echo " --- TRUE";
-		}else{
-			echo " --- False";
-		}
-		*/
 		echo "</br>";		
+		echo "qtd_maiores = $qtd_maiores --- qtd_quebras = $qtd_quebras</br>";		
 	}	
 }
 
 	$teste = new Tarefa4();	
 	
-
+	//$seq = array(1, 3, 6, 9);//  false
+	//$teste->sequenciaCrescente($seq);
+	
 	$seq = array(1, 3, 2, 1);//  false
 	$teste->sequenciaCrescente($seq);
 	

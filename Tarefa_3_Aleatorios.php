@@ -35,8 +35,6 @@ class Tarefa3{
 
 	$teste = new Tarefa3();	
 	$teste->preemcherArray();
-	
-
-	
+		
 ?>
 
